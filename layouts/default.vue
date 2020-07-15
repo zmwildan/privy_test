@@ -6,15 +6,8 @@
 
 <style>
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -60,3 +53,26 @@ html {
   background-color: #35495e;
 }
 </style>
+
+<script>
+export default {
+  // created: function() {
+  //   if (process.client) {
+  //     //do we support geolocation
+  //     if (!("geolocation" in window.navigator)) {
+  //       this.errorStr = "Geolocation is not available.";
+  //       return;
+  //     }
+  //     // get position
+  //     navigator.geolocation.getCurrentPosition(
+  //       pos => {
+  //         this.$store.commit("location/FETCH_LOCATION", pos.coords);
+  //       },
+  //       err => {
+  //         this.$store.commit("location/FETCH_ERROR", err.message);
+  //       }
+  //     );
+  //   }
+  // }
+};
+</script>
