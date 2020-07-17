@@ -1,6 +1,8 @@
 <template>
   <div class="container">
+    <HeaderSection :data="loggedInUser ? loggedInUser.user : {}"></HeaderSection>
     <div class="col-6 offset-3">
+      <UserInfoSection :data="loggedInUser ? loggedInUser.user : {}" @toggleModal="toggleModal"></UserInfoSection>
       <CareerSection
         :data="loggedInUser ? loggedInUser.user.career : {}"
         @toggleModal="toggleModal"
@@ -12,6 +14,11 @@
     </div>
     <AddCareer :isOpen="modalType == 'add_career'" @onRequestClose="toggleModal('')"></AddCareer>
     <AddEducation :isOpen="modalType == 'add_education'" @onRequestClose="toggleModal('')"></AddEducation>
+    <EditProfile
+      :isOpen="modalType == 'edit_profile'"
+      @onRequestClose="toggleModal('')"
+      :user="loggedInUser ? loggedInUser.user : {}"
+    ></EditProfile>
   </div>
 </template>
 
