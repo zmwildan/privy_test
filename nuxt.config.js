@@ -51,7 +51,8 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
-    "@nuxtjs/auth"
+    "@nuxtjs/auth",
+    "portal-vue/nuxt"
   ],
   /*
    ** Build configuration
