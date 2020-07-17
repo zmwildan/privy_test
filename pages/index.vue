@@ -1,73 +1,58 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        privy_test
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+    <div class="col-6 offset-3">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center mb-3 mt-3">
+            <b>Career</b>
+            <button class="btn btn-primary btn-sm" @click="toggleModal('add_career')">Add Career</button>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Position</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Starting From</th>
+                <th scope="col">Ending In</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>{{loggedInUser.user.career.position || '-'}}</td>
+                <td>{{loggedInUser.user.career.company_name}}</td>
+                <td>{{loggedInUser.user.career.starting_from}}</td>
+                <td>{{loggedInUser.user.career.ending_in}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
+    <AddCareer :isOpen="modalType == 'add_career'" @onRequestClose="toggleModal('')"></AddCareer>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapGetters } from "vuex";
+
+export default {
+  data: function() {
+    return {
+      modalType: ""
+    };
+  },
+  computed: {
+    ...mapGetters(["loggedInUser"])
+  },
+  methods: {
+    toggleModal: function(type) {
+      this.modalType = type;
+    }
+  }
+};
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
