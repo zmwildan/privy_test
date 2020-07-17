@@ -87,11 +87,7 @@ export default {
           user: {
             url: "api/profile/me",
             method: "get",
-            propertyName: false
-            // headers: {
-            //   Authorization:
-            //     "Bearer rdHdzmWrL4uKdi8hPMfYzlfPn68sY8TfSdFEoKIIyPAdxFTOCnHKbXxdiW5i36Gi8AjbnyEHRAvo5HV4U4ZfAeQzyE8EpsWqQ0ivIi3eJEGLUgIxsii5lrBkvIGtk5CN"
-            // }
+            propertyName: "data"
           },
           logout: false
         }
